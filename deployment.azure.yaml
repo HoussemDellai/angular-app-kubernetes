@@ -7,14 +7,14 @@ spec:
     matchLabels: 
       app: angular 
   replicas: 5 # tells deployment to run 2 pods matching the template 
-  template: 
+  template:
     metadata: 
       labels: 
         app: angular 
     spec: 
       containers: 
       - name: angular 
-        image: houssemdocker/angular-app:v1 
+        image: houssemdocker/angular-app:#{$(Build.BuildId)}#
         ports: 
         - containerPort: 80 
 --- 
