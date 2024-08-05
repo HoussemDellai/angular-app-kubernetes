@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    def imageName = "my-docker-image"
+                    def imageTag = "${env.BUILD_NUMBER}"
+                    
+                    // Build the Docker image
+                    sh "docker build -t ${imageName}:${imageTag} ."
+                }
+            }
+        }
+    }
+}
